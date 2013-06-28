@@ -253,7 +253,7 @@ $.fn.pivot = (input, opts) ->
                 colspan = ""
                 if parseInt(j) == opts.rows.length-1 and opts.cols.length !=0
                     colspan = " colspan='2'"
-                th = "<th class='pvtRowLabel' rowspan='#{x}' #{colspan}>#{x}</th>"
+                th = "<th class='pvtRowLabel' rowspan='#{x}' #{colspan}>#{txt}</th>"
                 tr += th
         for own j, cA of colAs
             aggregator = (tree[rA.join("-")][cA.join("-")] ? nullAggregator)
