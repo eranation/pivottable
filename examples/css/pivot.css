@@ -27,11 +27,12 @@ table.pvtTable tr td {
 .pvtTotal, .pvtGrandTotal { font-weight: bold; }
 
 .pvtAxisContainer {
-    border: 1px solid gray;
+/*    border: 1px solid gray;*/
     background: #EEE;
     padding: 5px;
     min-width: 20px;
     min-height: 20px;
+    max-width: 70px;
 }
 .pvtAxisContainer li {
     margin: 5px;
@@ -41,3 +42,11 @@ table.pvtTable tr td {
 }
 
 .pvtHorizList li { display: inline; }
+
+.nobr {
+    white-space: nowrap;
+}
+
+.ui-state-highlight {
+    background-color: lightblue;
+}
