@@ -566,7 +566,7 @@
 
 
   $.fn.pivotUI = function(input, opts) {
-    var aggregator, axisValues, c, colList, controls, defaults, effectNames, form, k, pivotTable, radio, refresh, tblCols, tr1, tr2, uiTable, x, y, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _m, _n, _ref, _ref1, _ref2, _ref3, _ref4;
+    var aggregator, axisValues, c, colList, controls, defaults, effectNames, form, k, pivotTable, radio, refresh, sortableSettings, tblCols, tr1, tr2, uiTable, x, y, _i, _j, _k, _l, _len, _len1, _len2, _len3, _len4, _len5, _m, _n, _ref, _ref1, _ref2, _ref3, _ref4;
 
     defaults = {
       derivedAttributes: {},
@@ -795,10 +795,12 @@
     };
     refresh();
     $('input[name=effects]').bind("change", refresh);
-    $(".pvtAxisContainer").sortable({
-      connectWith: ".pvtAxisContainer",
-      items: 'li'
-    }).disableSelection().bind("sortstop", refresh);
+    sortableSettings = {
+      connectWith: '.pvtAxisContainer',
+      items: 'li',
+      placeholder: "ui-state-highlight"
+    };
+    $(".pvtAxisContainer").sortable(sortableSettings).disableSelection().bind("sortstop", refresh);
     return this;
   };
 
@@ -846,10 +848,11 @@
       };
     };
     heatmapper = function(scope, color) {
-      var colorFor, forEachCell, values;
+      var $scope, colorFor, forEachCell, values;
 
+      $scope = _this.find(scope);
       forEachCell = function(f) {
-        return _this.find(scope).each(function() {
+        return $scope.each(function() {
           var x;
 
           x = $(this).data("value");

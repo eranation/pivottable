@@ -32,8 +32,12 @@ table.pvtTable tr td {
     padding: 5px;
     min-width: 20px;
     min-height: 20px;
-    max-width: 70px;
 }
+
+#rows {
+    width: 10%;
+}
+
 .pvtAxisContainer li {
     margin: 5px;
     padding: 5px;

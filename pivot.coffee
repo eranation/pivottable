@@ -463,8 +463,13 @@ $.fn.pivotUI = (input, opts) ->
 
     #finally we attach the event handlers
     $('input[name=effects]').bind "change", refresh
+    sortableSettings =
+        connectWith: '.pvtAxisContainer'
+        items: 'li'
+        placeholder: "ui-state-highlight"
+
     $(".pvtAxisContainer")
-         .sortable({connectWith:".pvtAxisContainer", items: 'li'})
+         .sortable(sortableSettings)
          .disableSelection()
          .bind "sortstop", refresh
 
@@ -490,8 +495,9 @@ $.fn.heatmap = (scope = "heatmap") ->
             return hexGen(hex)
 
     heatmapper = (scope, color) =>
+        $scope = @find(scope)
         forEachCell = (f) =>
-            @find(scope).each ->
+            $scope.each ->
                 x = $(this).data("value")
                 f(x, $(this)) if x? and isFinite(x)
 
