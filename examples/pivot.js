@@ -775,10 +775,10 @@
         return exclusions.push($(this).data("filter"));
       });
       subopts.filter = function(row) {
-        var v, _len6, _o;
+        var v, _len6, _o, _ref5;
 
-        for (v = _o = 0, _len6 = exclusions.length; _o < _len6; v = ++_o) {
-          k = exclusions[v];
+        for (_o = 0, _len6 = exclusions.length; _o < _len6; _o++) {
+          _ref5 = exclusions[_o], k = _ref5[0], v = _ref5[1];
           if (row[k] === v) {
             return false;
           }
